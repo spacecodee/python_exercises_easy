@@ -1,8 +1,10 @@
 import os
 from PIL import Image, ImageFilter
 import pytesseract
+import numpy as np
+import matplotlib.pyplot as plt
 
-image_url = "../assets/images/img_5.jpeg"
+image_url = "../assets/images/img_2.jpg"
 
 
 def img_to_ocr_using_grayscale():
@@ -45,6 +47,22 @@ def img_to_ocr_without_grayscale():
     print(text)
 
 
+# hard example with matplotlib and numpy showing in a cartesian plane
+def img_to_ocr_using_numpy():
+    img = Image.open(image_url)
+    img = np.array(img)
+    plt.imshow(img)
+    plt.show()
+
+
+# show text in a cartesian plane just with points with black color avoid using the image in the top
+def img_to_ocr_using():
+    img = Image.open(image_url)
+    img = np.array(img)
+    plt.imshow(img, cmap="gray")
+    plt.show()
+
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print("With grayscale:\n")
@@ -52,3 +70,6 @@ if __name__ == '__main__':
 
     print("\nWithout grayscale:\n")
     img_to_ocr_without_grayscale()
+
+    print("\nMatplotlib:\n")
+    img_to_ocr_using()
