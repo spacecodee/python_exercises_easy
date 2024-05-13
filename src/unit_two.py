@@ -22,14 +22,15 @@ def calculate_measure_of_centrality():
     points = 15
     graphic = nx.gnp_random_graph(points, 0.5, directed=False)
 
-    degree_centrality = nx.degree_centrality(graphic)  # Degree centrality is the number of links incident upon a node
+    degree_centrality = nx.degree_centrality(
+        graphic)  # La centralidad de grado es el número de enlaces que inciden en un nodo.
     print("Degree Centrality: ", degree_centrality)
     closeness_centrality = nx.closeness_centrality(
-        graphic)  # Closeness centrality is the average length of the shortest path between the node and all other
-    # nodes in the graph
+        graphic)  # La centralidad de cercanía es la longitud promedio del camino más corto entre el nodo y todos los
+    # demás nodos en el gráfico.
     print("Closeness Centrality: ", closeness_centrality)
     betweenness_centrality = nx.betweenness_centrality(
-        graphic)  # Betweenness centrality is the number of shortest paths that pass through the node
+        graphic)  # La centralidad de intermediación es el número de caminos más cortos que pasan por el nodo.
     print("Betweenness Centrality: ", betweenness_centrality)
     nx.draw(graphic, with_labels=True, node_color=range(points))
     plt.show()
@@ -41,7 +42,7 @@ def detect_communities():
     points = 10
     graphic = nx.gnp_random_graph(points, 0.5, directed=True)
     communities = nx.community.greedy_modularity_communities(
-        graphic)  # Greedy modularity maximization is a fast method for detecting communities in networks
+        graphic)  # La maximización codiciosa de la modularidad es un método rápido para detectar comunidades en redes.
     print("Communities: ", communities)
     nx.draw(graphic, with_labels=True, node_color=range(points))
     plt.show()
@@ -57,6 +58,7 @@ def show_graph_karate_to_show_club_members():
 
 
 # Los grafos dirigidos son aquellos en los que las aristas tienen una dirección, es decir, van de un nodo a otro.
+# Tiene un solo sentido
 def show_graph_managed():
     graphic = nx.DiGraph()
 
@@ -69,6 +71,7 @@ def show_graph_managed():
     plt.show()
 
 
+# Encuentra la ruta más corta entre dos nodos en un gráfico.
 def show_shortest_path():
     graphic = nx.Graph()
 
@@ -90,6 +93,7 @@ def show_shortest_path():
     plt.show()
 
 
+# Encuentra los componentes conectados en un gráfico.
 def show_connected_components():
     graphic = nx.Graph()
 
